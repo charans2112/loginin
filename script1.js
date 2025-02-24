@@ -1,19 +1,3 @@
-// Auto logout if user comes back to the login page
-if (window.location.pathname.includes("index.html")) { 
-    sessionStorage.removeItem("loggedIn"); // Clear login session
-}
-
-// Prevent back and forward navigation
-history.pushState(null, null, location.href);
-window.addEventListener("popstate", function () {
-    history.pushState(null, null, location.href);
-});
-
-// Redirect to login if not logged in (for protected pages like dashboard)
-if (window.location.pathname.includes("dashboard.html") && !sessionStorage.getItem("loggedIn")) {
-    window.location.href = "index.html"; // Redirect to login page
-}
-
 document.getElementById("login-form").addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent form submission
 
