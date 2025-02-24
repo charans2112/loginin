@@ -1,3 +1,4 @@
+sessionStorage.removeItem("loggedIn");
 document.getElementById("login-form").addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent form submission
 
