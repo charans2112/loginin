@@ -1,19 +1,3 @@
-// Check if user is logged in
-function checkLoginStatus() {
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-        window.location.href = "login.html"; // Redirect to Login Page if not authenticated
-    }
-}
-
-// Logout function
-function logout() {
-    localStorage.removeItem("isLoggedIn"); // Remove session flag
-    window.location.href = "login.html"; // Redirect to Login Page
-}
-
-// Call login check on page load
-window.onload = checkLoginStatus;
-
 let allMessages = [];
         let isDarkMode = false;
 
