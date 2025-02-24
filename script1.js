@@ -1,4 +1,9 @@
 sessionStorage.removeItem("loggedIn");
+history.pushState(null, null, location.href);
+window.addEventListener("popstate", function () {
+    history.pushState(null, null, location.href);
+});
+
 document.getElementById("login-form").addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent form submission
 
