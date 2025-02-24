@@ -3,7 +3,7 @@ let allMessages = [];
 
         async function loadChat() {
             try {
-                let response = await fetch("filtered_chat.json");
+                let response = await fetch("sample_chat.json");
                 let data = await response.json();
                 allMessages = data.messages;
                 displayMessages(allMessages);
