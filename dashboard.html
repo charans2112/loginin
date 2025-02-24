@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat History</title>
     <link rel="stylesheet" href="chatstyle.css">
+    <button id="logoutButton" onclick="logout()">Logout</button>
 </head>
 <body>
     <div class="container">
@@ -58,6 +59,9 @@
     <video id="backgroundVideo" class="hidden" autoplay loop muted></video>
 
     <script src="chatscript.js"></script>
+<script>
+    checkLoginStatus();
+</script>
 
 </body>
 </html>
