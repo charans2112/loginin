@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat Login</title>
   <link rel="stylesheet" href="styles2.css">
-  <script>
-        window.history.pushState(null, "", window.location.href);
-        window.onpopstate = function() {
-            window.history.pushState(null, "", window.location.href);
-};
-        <script>
 </head>
 <body>
   <div class="background"></div>
@@ -38,6 +32,12 @@
       <button type="submit" id="login-button">Login</button>
     </form>
   </div>
+  <script>
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+};
+        <script>
   <script src="script1.js"></script>
 </body>
 </html>
