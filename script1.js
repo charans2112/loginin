@@ -40,7 +40,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
     if (hashedUsername === correctHashedUsername && hashedPassword === correctHashedPassword) {
         errorMessage.style.display = "none"; // Hide error if correct
         passwordField.value = ""; // Clear password before redirecting
-        window.location.href = "https://test3-site.netlify.app/"; // Redirect to another page
+        window.location.href = "dashboard.html"; // Redirect to another page
     } else {
         errorMessage.textContent = "Invalid username or password!";
         errorMessage.style.display = "block"; // Show the error message
