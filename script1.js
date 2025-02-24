@@ -1,5 +1,7 @@
-// Auto logout when returning to the login page
-sessionStorage.removeItem("loggedIn");
+// Auto logout if user comes back to the login page
+if (window.location.pathname.includes("index.html")) { 
+    sessionStorage.removeItem("loggedIn"); // Clear login session
+}
 
 // Prevent back and forward navigation
 history.pushState(null, null, location.href);
