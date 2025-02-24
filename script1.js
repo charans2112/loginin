@@ -18,8 +18,8 @@ document.getElementById("login-form").addEventListener("submit", async function(
     const hashedPassword = await hashData(password);
 
     // Precomputed SHA-256 hashes
-    const correctHashedUsername = "890de92ebc9019ab9448a029b841c199351b9472f38c6aaf026bb63cba90f5b6"; // Hash of "Maha"
-    const correctHashedPassword = "dbe777f4568d7aeab67eca6f565d5e0536e6478337808ff69d92c09909986b77"; // Hash of "Mahalakshmi@6743"
+    const correctHashedUsername = "890de92ebc9019ab9448a029b841c199351b9472f38c6aaf026bb63cba90f5b6";
+    const correctHashedPassword = "dbe777f4568d7aeab67eca6f565d5e0536e6478337808ff69d92c09909986b77"; 
 
     if (hashedUsername === correctHashedUsername && hashedPassword === correctHashedPassword) {
         errorMessage.style.display = "none"; // Hide error if correct
