@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-selector">
+            <button id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+            <select id="themeSelect" onchange="handleThemeChange()">
+                <option value="default">Default</option>
+                <option value="dark-colors">Dark Colors</option>
+                <option value="background-image">Background Image</option>
+            </select>
+
+            <div id="videoPicker" class="hidden">
+                <select id="videoSelect" onchange="applyVideoBackground()">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        
+            <div id="darkColorPicker" class="hidden">
+                <button class="color-circle" style="background-color: #222;" onclick="applyDarkColor('#222')"></button>
+                <button class="color-circle" style="background-color: #333;" onclick="applyDarkColor('#333')"></button>
+                <button class="color-circle" style="background-color: #444;" onclick="applyDarkColor('#444')"></button>
+                <button class="color-circle" style="background-color: #555;" onclick="applyDarkColor('#555')"></button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search messages...">
+            <div class="filter-group">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+            </div>
+            <select id="senderFilter">
+                <option value="all">All Senders</option>
+                <option value="Maha">Maha</option>
+                <option value="Abhishek">Abhishek</option>
+            </select>
+            <select id="sortOrder">
+                <option value="oldest">Oldest First</option>
+                <option value="newest">Newest First</option>
+            </select>
+            <button onclick="applyFilters()">Search</button>
+            <button onclick="resetSearch()">Reset</button>
+        </div>
+
+        <div class="chat-container" id="chat-box">
+            <p>Loading chat...</p>
+        </div>
+    </div>
+
+    <!-- Video Background Element -->
+    <video id="backgroundVideo" class="hidden" autoplay loop muted></video>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>
