@@ -187,3 +187,32 @@ let allMessages = [];
   
 
         loadChat();
+// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, and Ctrl+U (both uppercase & lowercase)
+document.addEventListener("keydown", function (event) {
+    const key = event.key.toLowerCase(); // Convert key to lowercase
+
+    if (
+        event.ctrlKey && 
+        (event.key === "u" || event.key === "U" || event.key === "s" || event.key === "S") ||
+        event.key === "F12" ||
+        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "i" || event.key === "J" || event.key === "j" || event.key === "C" || event.key === "c"))
+    ) {
+        event.preventDefault();
+    }
+});
+
+if (document.documentElement) {
+    Object.defineProperty(document, 'documentElement', {
+        get: function () {
+            window.location.href = "about:blank";
+            return null;
+        }
+    });
+}
+
+setInterval(() => {
+    if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+        document.body.innerHTML = "";
+        window.location.replace("about:blank");
+    }
+}, 1000);
