@@ -22,46 +22,12 @@ document.getElementById("login-form").addEventListener("submit", async function(
     const correctHashedPassword = "dbe777f4568d7aeab67eca6f565d5e0536e6478337808ff69d92c09909986b77"; 
 
     if (hashedUsername === correctHashedUsername && hashedPassword === correctHashedPassword) {
-        errorMessage.style.display = "none"; // Hide error if correct
-        passwordField.value = ""; // Clear password before redirecting
-        window.location.href = "dashboard.html"; // Redirect to another page
+        sessionStorage.setItem("authenticated", "true"); // Store session authentication
+        errorMessage.style.display = "none"; 
+        passwordField.value = ""; 
+        window.location.href = "dashboard.html"; 
     } else {
         errorMessage.textContent = "Invalid username or password!";
-        errorMessage.style.display = "block"; // Show the error message
+        errorMessage.style.display = "block";
     }
 });
-
-// Disable right-click
-document.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-
-// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, and Ctrl+U (both uppercase & lowercase)
-document.addEventListener("keydown", function (event) {
-    const key = event.key.toLowerCase(); // Convert key to lowercase
-
-    if (
-        event.ctrlKey && 
-        (event.key === "u" || event.key === "U" || event.key === "s" || event.key === "S") ||
-        event.key === "F12" ||
-        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "i" || event.key === "J" || event.key === "j" || event.key === "C" || event.key === "c"))
-    ) {
-        event.preventDefault();
-    }
-});
-
-if (document.documentElement) {
-    Object.defineProperty(document, 'documentElement', {
-        get: function () {
-            window.location.href = "about:blank";
-            return null;
-        }
-    });
-}
-
-setInterval(() => {
-    if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
-        document.body.innerHTML = "";
-        window.location.replace("about:blank");
-    }
-}, 1000);
